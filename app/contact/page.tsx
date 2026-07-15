@@ -1,0 +1,3 @@
+import {PageHero} from "@/components/PageHero"; import {ContactForm} from "./ContactForm";
+export const metadata={title:'Contact'};
+export default function Page(){return <><PageHero eyebrow="Contact" title="Start a conversation with Nexora." description="For platform licensing, partnerships, investment opportunities, corporate enquiries or privacy matters, contact our team."/><section className="px-5 pb-24"><div className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-[.65fr_1.35fr]"><div><h2 className="text-xl font-black">Nexora Technologies Holdings LLC</h2><p className="mt-4 leading-7 text-[color:var(--muted)]">Delaware, United States<br/>info@nexoratechholdings.com<br/>partnerships@nexoratechholdings.com</p></div><ContactForm/></div></section></>}
