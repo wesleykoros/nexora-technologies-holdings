@@ -1,3 +1,29 @@
-import {PageHero} from "@/components/PageHero"; import {platforms} from "@/lib/data";
-export const metadata={title:'Platforms'};
-export default function Page(){return <><PageHero eyebrow="Platform portfolio" title="Specialised products. Shared intelligence. Global potential." description="Our portfolio combines focused industry platforms with a common commitment to trustworthy automation, strong governance and measurable outcomes."/><section className="px-5 pb-24"><div className="mx-auto max-w-5xl space-y-5">{platforms.map((p,i)=><article key={p.name} className="glass grid gap-6 rounded-3xl p-7 md:grid-cols-[auto_1fr_auto] md:items-center"><div className="grid size-14 place-items-center rounded-2xl bg-indigo-500/10 text-indigo-500"><p.icon/></div><div><p className="text-xs font-bold uppercase tracking-[.2em] text-[color:var(--muted)]">{p.tag}</p><h2 className="mt-2 text-3xl font-black">{p.name}</h2><p className="mt-3 max-w-2xl leading-7 text-[color:var(--muted)]">{p.description}</p></div><span className="text-5xl font-black text-slate-500/20">0{i+1}</span></article>)}</div></section></>}
+import type { Metadata } from "next";
+
+import { InteractivePlatformGrid } from "@/components/platforms/InteractivePlatformGrid";
+import { PlatformComparison } from "@/components/platforms/PlatformComparison";
+import { PortfolioArchitecture } from "@/components/platforms/PortfolioArchitecture";
+import { PortfolioCTA } from "@/components/platforms/PortfolioCTA";
+import { PortfolioHero } from "@/components/platforms/PortfolioHero";
+import { PortfolioLifecycle } from "@/components/platforms/PortfolioLifecycle";
+import { SharedCapabilities } from "@/components/platforms/SharedCapabilities";
+
+export const metadata: Metadata = {
+  title: "Platforms",
+  description:
+    "Explore the technology platform portfolio of Nexora Technologies Holdings LLC.",
+};
+
+export default function PlatformsPage() {
+  return (
+    <>
+      <PortfolioHero />
+      <PortfolioArchitecture />
+      <InteractivePlatformGrid />
+      <SharedCapabilities />
+      <PlatformComparison />
+      <PortfolioLifecycle />
+      <PortfolioCTA />
+    </>
+  );
+}
