@@ -1,3 +1,35 @@
-import {PageHero} from "@/components/PageHero";
-export const metadata={title:'Technology'};
-export default function Page(){const x=[['AI with governance','Human oversight, clear boundaries and accountable workflows.'],['Cloud-native platforms','Secure, scalable services designed for international deployment.'],['Interoperability','Practical integration with operational and industry ecosystems.'],['Compliance by design','Evidence, permissions, auditability and privacy embedded in the platform.']];return <><PageHero eyebrow="Technology & innovation" title="Modern architecture without compromising trust." description="Our technology strategy combines artificial intelligence, workflow automation, secure cloud systems and compliance-by-design."/><section className="px-5 pb-24"><div className="mx-auto grid max-w-5xl gap-5 md:grid-cols-2">{x.map(a=><article className="glass rounded-3xl p-7" key={a[0]}><h2 className="text-2xl font-black">{a[0]}</h2><p className="mt-4 leading-7 text-[color:var(--muted)]">{a[1]}</p></article>)}</div></section></>}
+import type { Metadata } from "next";
+
+import { ArchitecturePrinciples } from "@/components/technology/ArchitecturePrinciples";
+import { FutureTechnology } from "@/components/technology/FutureTechnology";
+import { InnovationPipeline } from "@/components/technology/InnovationPipeline";
+import { IntegrationArchitecture } from "@/components/technology/IntegrationArchitecture";
+import { PlatformStack } from "@/components/technology/PlatformStack";
+import { ResponsibleAIFramework } from "@/components/technology/ResponsibleAIFramework";
+import { ScalabilityModel } from "@/components/technology/ScalabilityModel";
+import { SecurityArchitecture } from "@/components/technology/SecurityArchitecture";
+import { TechnologyHero } from "@/components/technology/TechnologyHero";
+import { TechnologyPhilosophy } from "@/components/technology/TechnologyPhilosophy";
+
+export const metadata: Metadata = {
+  title: "Technology & Architecture",
+  description:
+    "Explore Nexora's enterprise architecture, responsible AI, security, integration and scalable technology foundations.",
+};
+
+export default function TechnologyPage() {
+  return (
+    <>
+      <TechnologyHero />
+      <TechnologyPhilosophy />
+      <ArchitecturePrinciples />
+      <PlatformStack />
+      <ResponsibleAIFramework />
+      <SecurityArchitecture />
+      <IntegrationArchitecture />
+      <ScalabilityModel />
+      <InnovationPipeline />
+      <FutureTechnology />
+    </>
+  );
+}
