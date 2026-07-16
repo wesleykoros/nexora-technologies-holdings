@@ -9,10 +9,11 @@ import { Logo } from "./Logo";
 
 const nav = [
   ["About", "/about"],
+  ["Governance", "/governance"],
   ["Platforms", "/platforms"],
   ["Industries", "/industries"],
   ["Technology", "/technology"],
-  ["Partners", "/partnerships"],
+  ["Partnerships", "/partnerships"],
   ["Insights", "/insights"],
 ] as const;
 
@@ -40,7 +41,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5">
         <Logo />
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-6 xl:gap-8 lg:flex">
           {nav.map(([name, href]) => (
             <Link
               key={href}
