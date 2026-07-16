@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+    <defs>
+      <linearGradient id="nexoraGradient" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#4F46E5"/>
+        <stop offset="54%" stop-color="#2563EB"/>
+        <stop offset="100%" stop-color="#22D3EE"/>
+      </linearGradient>
+      <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+        <feGaussianBlur stdDeviation="7" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    
+<rect width="64" height="64" rx="15" fill="#081B33"/>
+
+    <rect x="20.08" y="12.76" width="8.16" height="36.48" rx="1.92" fill="#22D3EE"/>
+    <rect x="39.76" y="12.76" width="8.16" height="36.48" rx="1.92" fill="#22D3EE"/>
+    <polygon points="24.40,12.76 32.08,12.76 47.92,49.24 40.00,49.24" fill="#4F46E5"/>
+    
+        <polygon points="24.40,12.76 32.08,12.76 36.88,23.80 29.20,23.80" fill="#665EF5" opacity=".95"/>
+        <rect x="39.76" y="12.76" width="8.16" height="16.78" rx="1.92" fill="#1CC9E8" opacity=".9"/>
+        
+</svg>
