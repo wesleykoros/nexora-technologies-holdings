@@ -1,9 +1,19 @@
 import type { Metadata } from "next";
+
 import "./globals.css";
+import "./premium-experience.css";
 
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ThemeProvider } from "@/components/ThemeProvider";
+
+import { PremiumExperience } from "@/components/premium/PremiumExperience";
+import { StructuredData } from "@/components/premium/StructuredData";
+
+import {
+  organizationStructuredData,
+  websiteStructuredData,
+} from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nexoratechholdings.com"),
@@ -49,9 +59,15 @@ export const metadata: Metadata = {
 
   icons: {
     icon: [
-      { url: "/brand/favicon.ico" },
-      { url: "/brand/favicon.svg", type: "image/svg+xml" },
+      {
+        url: "/brand/favicon.ico",
+      },
+      {
+        url: "/brand/favicon.svg",
+        type: "image/svg+xml",
+      },
     ],
+
     apple: "/brand/apple-touch-icon.png",
   },
 
@@ -59,6 +75,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://nexoratechholdings.com",
+
     siteName: "Nexora Technologies Holdings LLC",
 
     title: "Nexora Technologies Holdings LLC",
@@ -79,22 +96,41 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Nexora Technologies Holdings LLC",
-    description: "Technology infrastructure for industries that matter.",
+    description:
+      "Technology infrastructure for industries that matter.",
     images: ["/brand/og-image-1200x630.png"],
   },
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
         <ThemeProvider>
+          {/* Premium Experience Layer */}
+          <PremiumExperience />
+
+          {/* Structured Data */}
+          <StructuredData
+            data={[
+              organizationStructuredData,
+              websiteStructuredData,
+            ]}
+          />
+
+          {/* Site Navigation */}
           <SiteHeader />
-          {children}
+
+          {/* Main Content */}
+          <main id="main-content">
+            {children}
+          </main>
+
+          {/* Footer */}
           <SiteFooter />
         </ThemeProvider>
       </body>

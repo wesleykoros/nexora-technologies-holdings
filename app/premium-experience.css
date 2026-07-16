@@ -1,0 +1,126 @@
+/*
+ * Nexora V6 Premium Corporate Experience
+ * Import this file once from app/layout.tsx after globals.css.
+ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+::selection {
+  background: rgb(34 211 238 / 0.28);
+  color: var(--foreground);
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.nexora-pointer-glow {
+  --pointer-x: 50vw;
+  --pointer-y: 20vh;
+
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(
+      420px circle at var(--pointer-x) var(--pointer-y),
+      rgb(37 99 235 / 0.10),
+      transparent 68%
+    );
+  transition: opacity 250ms ease;
+}
+
+.nexora-pointer-glow[data-visible="true"] {
+  opacity: 1;
+}
+
+.premium-section-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(to right, rgb(148 163 184 / 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(148 163 184 / 0.08) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+}
+
+.premium-architecture-card {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 260ms ease,
+    border-color 260ms ease,
+    box-shadow 260ms ease;
+}
+
+.premium-architecture-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4f46e5, #2563eb, #22d3ee);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease;
+}
+
+.premium-architecture-card:hover {
+  transform: translateY(-4px);
+  border-color: rgb(34 211 238 / 0.35);
+  box-shadow: 0 24px 60px rgb(15 23 42 / 0.22);
+}
+
+.premium-architecture-card:hover::after {
+  transform: scaleX(1);
+}
+
+.primary-cta,
+.secondary-cta,
+.nav-link,
+.industry-card,
+.portfolio-row {
+  outline: none;
+}
+
+.primary-cta:focus-visible,
+.secondary-cta:focus-visible,
+.nav-link:focus-visible,
+.industry-card:focus-visible,
+.portfolio-row:focus-visible {
+  border-radius: 999px;
+  box-shadow:
+    0 0 0 2px var(--background),
+    0 0 0 4px #22d3ee;
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .nexora-pointer-glow {
+    display: none;
+  }
+
+  .premium-architecture-card:hover {
+    transform: none;
+  }
+}
